@@ -1,9 +1,10 @@
 <div class="header mono">
   <div class="container">
     <div class="logo">
-      <span class="icon">&lt;C/&gt;</span>
-      <span class="name">AbdulrahmanAdam</span>
+      <span class="icon" [class.mobile-title]="mobile">&lt;C/&gt;</span>
+      <span class="name" [class.mobile-title]="mobile">AbdulrahmanAdam</span>
     </div>
+    @if(!mobile){
     <div class="navbar">
       <ul>
         <li>
@@ -28,5 +29,42 @@
         </li>
       </ul>
     </div>
+    } @else {
+    <div class="mobile">
+      <div class="navbar">
+        @if(!burgerMenu){
+        <i class="bi bi-list burger-menu" (click)="toggleMenu()"></i>
+        } @else {
+        <i class="bi bi-x burger-menu" (click)="toggleMenu()"></i>
+        }
+      </div>
+      @if(burgerMenu){
+      <div class="mobile-menu">
+        <ul>
+          <li>
+            <img src="assets/images/home_icon.png" alt="" />
+            <a routerLink="home" routerLinkActive="active">Home</a>
+          </li>
+          <li>
+            <img src="assets/images/about_icon.png" alt="" />
+            <a routerLink="about" routerLinkActive="active">About</a>
+          </li>
+          <li>
+            <img src="assets/images/skills_icon.png" alt="" />
+            <a routerLink="skills" routerLinkActive="active">Skills</a>
+          </li>
+          <li>
+            <img src="assets/images/works_icon.png" alt="" />
+            <a routerLink="works" routerLinkActive="active">Works</a>
+          </li>
+          <li>
+            <img src="assets/images/contact_icon.png" alt="" />
+            <a routerLink="contact" routerLinkActive="active">Contact</a>
+          </li>
+        </ul>
+      </div>
+      }
+    </div>
+    }
   </div>
 </div>

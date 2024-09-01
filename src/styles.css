@@ -6,9 +6,15 @@
 }
 
 .ubuntu {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .mono {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.loading {
+  position: absolute;
+  left: 50% !important;
+  top: 50% !important;
 }

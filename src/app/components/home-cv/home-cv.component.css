@@ -10,8 +10,6 @@
   border-top-left-radius: 200px;
   border-bottom-right-radius: 200px;
   box-shadow: -5px -5px 3px #12f7d6;
-  /* position: absolute;
-  top: 100px; */
 }
 
 .cv img.profile {
@@ -80,4 +78,7 @@
   margin-left: 15px;
   text-decoration: none;
   padding: 10px 15px;
+}
+
+@media (max-width: 1000px) {
 }

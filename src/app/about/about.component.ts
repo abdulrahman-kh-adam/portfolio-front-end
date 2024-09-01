@@ -1,7 +1,14 @@
-import { Component, inject } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  Inject,
+  inject,
+  PLATFORM_ID,
+} from '@angular/core';
 import { IAbout } from './about.models';
 import { AboutService } from './about.service';
 import { env } from '../../../environments';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-about',
@@ -13,6 +20,14 @@ export class AboutComponent {
   failMessage = false;
   aboutService = inject(AboutService);
   url = env.SERVER_URL;
+  screenWidth!: number;
+  mobile = false;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.screenWidth = window.innerWidth;
+    }
+  }
 
   ngOnInit() {
     this.aboutService.getHomeInfo().subscribe((res) => {
@@ -22,5 +37,27 @@ export class AboutComponent {
         this.failMessage = true;
       }
     });
+    this.getScreenWidth();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.screenWidth = window.innerWidth;
+    }
+    if (this.screenWidth < 1000) {
+      this.mobile = true;
+    } else {
+      this.mobile = false;
+    }
+  }
+
+  getScreenWidth(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.screenWidth = window.innerWidth;
+    }
+    if (this.screenWidth < 1000) {
+      this.mobile = true;
+    }
   }
 }

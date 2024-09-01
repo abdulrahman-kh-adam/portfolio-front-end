@@ -2,6 +2,7 @@
   @if(!fail){
   <div class="front-end">
     <app-section-title name="Front End Skills" />
+    @if(frontEndSkills){
     <ul>
       @for(skill of frontEndSkills; track $index){
       <li>
@@ -10,9 +11,15 @@
       </li>
       }
     </ul>
+    } @else {
+    <div class="spinner-grow loading-front text-light" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    }
   </div>
-  <div class="back-end">
+  <div class="front-end">
     <app-section-title name="Back End Skills" />
+    @if(backEndSkills){
     <ul>
       @for(skill of backEndSkills; track $index){
       <li>
@@ -21,9 +28,15 @@
       </li>
       }
     </ul>
+    } @else {
+    <div class="spinner-grow loading-back text-light" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    }
   </div>
-  <div class="other">
+  <div class="front-end">
     <app-section-title name="Other Software Skills" />
+    @if(otherSkills){
     <ul>
       @for(skill of otherSkills; track $index){
       <li>
@@ -32,6 +45,11 @@
       </li>
       }
     </ul>
+    } @else {
+    <div class="spinner-grow loading-other text-light" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    }
   </div>
   } @else {
   <div class="fail-message">

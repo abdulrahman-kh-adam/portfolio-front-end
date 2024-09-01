@@ -1,5 +1,5 @@
 .tag {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
   color: #98faec;
   font-size: 14px;
 }
@@ -16,6 +16,13 @@
   color: white;
   text-align: justify;
   margin-bottom: 15px;
+}
+
+@media (max-width: 1000px) {
+  .p {
+    width: 95%;
+    text-wrap: wrap;
+  }
 }
 
 .p p {

@@ -14,6 +14,7 @@ export class WorksComponent {
   fail = false;
   failMessage!: string;
   url = env.SERVER_URL;
+  loading = true;
 
   ngOnInit() {
     this.worksService.getCategories().subscribe((res) => {
@@ -35,6 +36,7 @@ export class WorksComponent {
             this.works.forEach((category) => {
               category.worksArray = Array.from(category.worksMap.values());
             });
+            this.loading = false;
           } else {
             this.fail = true;
           }

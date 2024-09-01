@@ -1,6 +1,6 @@
 <div class="container">
-  @if(!fail){ @for(category of works; track $index){ @if(category.worksMap.size
-  > 0 && category.name !== 'Other'){
+  @if(!loading){ @if(!fail){ @for(category of works; track $index){
+  @if(category.worksMap.size > 0 && category.name !== 'Other'){
   <app-section-title [name]="category.name + ' Projects'" />
   <div class="projects-container">
     @for(project of category.worksArray; track $index){
@@ -32,6 +32,10 @@
   } } } @else {
   <div class="fail-message">
     <p>{{ failMessage }}</p>
+  </div>
+  } } @else {
+  <div class="spinner-grow loading text-light" role="status">
+    <span class="visually-hidden">Loading...</span>
   </div>
   }
 </div>
