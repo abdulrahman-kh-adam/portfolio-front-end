@@ -50,3 +50,7 @@ textarea.ng-invalid.ng-touched {
     height: 100vh;
   }
 }
+
+.form-group textarea {
+  height: 100px;
+}

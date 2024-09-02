@@ -49,6 +49,7 @@
         id="message"
         placeholder="Enter your message..."
         formControlName="message"
+        rows="10"
       ></textarea>
       @if(contactForm.get('message')?.errors?.['required'] &&
       contactForm.get('message')?.touched){
@@ -58,10 +59,12 @@
     <div class="form-group">
       <a class="btn btn-primary" (click)="submitForm()">Send</a>
     </div>
-    @if(done){
+    @if(loading){
+    <div class="alert alert-secondary text-center">Sending message...</div>
+    } @else { @if(done){
     <div class="alert alert-success text-center">
       Message sent successfully!
     </div>
-    }
+    } }
   </form>
 </div>

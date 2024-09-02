@@ -12,6 +12,7 @@ export class ContactComponent {
   contactForm!: FormGroup;
   contactService = inject(ContactService);
   done = false;
+  loading = false;
   ngOnInit() {
     this.contactForm = new FormGroup({
       username: new FormControl('', [Validators.required]),
@@ -21,6 +22,7 @@ export class ContactComponent {
     });
   }
   submitForm() {
+    this.loading = true;
     const message: IMessage = {
       name: this.contactForm.value.username,
       email: this.contactForm.value.email,
@@ -30,12 +32,8 @@ export class ContactComponent {
     this.contactService.sendMessage(message).subscribe((res) => {
       if (res.status === 'success') {
         this.done = true;
-        this.contactForm.patchValue({
-          username: '',
-          email: '',
-          subject: '',
-          message: '',
-        });
+        this.loading = false;
+        this.contactForm.reset();
       }
     });
   }
