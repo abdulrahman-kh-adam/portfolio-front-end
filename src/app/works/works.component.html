@@ -6,7 +6,7 @@
     @for(project of category.worksArray; track $index){
     <app-project
       [title]="project.name"
-      [img]="url + '/' + project.image"
+      [img]="url + project.image"
       [github]="project.github"
       [preview]="project.preview"
     >
@@ -21,7 +21,7 @@
     @for(project of category.worksArray; track $index){
     <app-project
       [title]="project.name"
-      [img]="url + '/' + project.image"
+      [img]="url + project.image"
       [github]="project.github"
       [preview]="project.preview"
     >

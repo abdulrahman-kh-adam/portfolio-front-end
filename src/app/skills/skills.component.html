@@ -6,7 +6,7 @@
     <ul>
       @for(skill of frontEndSkills; track $index){
       <li>
-        <img [src]="url + '/' + skill.image" alt="" />
+        <img [src]="url + skill.image" alt="" />
         <p>{{ skill.name }}</p>
       </li>
       }
@@ -23,7 +23,7 @@
     <ul>
       @for(skill of backEndSkills; track $index){
       <li>
-        <img [src]="url + '/' + skill.image" alt="" />
+        <img [src]="url + skill.image" alt="" />
         <p>{{ skill.name }}</p>
       </li>
       }
@@ -40,7 +40,7 @@
     <ul>
       @for(skill of otherSkills; track $index){
       <li>
-        <img [src]="url + '/' + skill.image" alt="" />
+        <img [src]="url + skill.image" alt="" />
         <p>{{ skill.name }}</p>
       </li>
       }
