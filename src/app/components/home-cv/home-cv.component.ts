@@ -12,5 +12,5 @@ export class HomeCvComponent {
   @Input({ required: true }) email!: string;
   @Input({ required: true }) location!: string;
   @Input({ required: true }) work!: string;
-  cv = env.SERVER_URL + '/cv.pdf';
+  cv = env.CV_URL;
 }
